@@ -45,13 +45,11 @@
         <br><br>
         <h1 align= "center" style="font-family: 'Times New Roman', Times, serif;"><b>DATA PENDAPATAN</b></h1>
         <br><br>
-
                 <form action="/tambahdatapendapatan" method="POST">
                 <input type="text" name="inputketerangan" placeholder="Keterangan">
                 <input type="text" name="inputjumlah" placeholder="Jumlah">
                 <button type="submit">Tambah</button>
                 </form>
-
         <br/>
         <table>
             <thead>
@@ -67,7 +65,7 @@
                         <td>{{ ID_Transaksi }}</td>
                         <td>{{ Keterangan }}</td>
                         <td>{{ Jumlah }}</td>
-                        <td><a href="/hapus-pendapatan/{{ Jumlah }}"><button>HAPUS</button></a></td>
+                        <td><a href="/hapus-pendapatan/{{ ID_Transaksi }}"><button>HAPUS</button></a></td>
                     </tr>
                 {{/each}}
             </tbody>

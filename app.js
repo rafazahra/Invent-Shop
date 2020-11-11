@@ -73,8 +73,8 @@ app.get('/pendapatan', (req, res) => {
 });
 
 app.post('/tambahdatapendapatan', (req, res) => {
-    var keterangan = req.body.Keterangan;
-    var jumlah = req.body.Jumlah;
+    var keterangan = req.body.inputketerangan;
+    var jumlah = req.body.inputjumlah;
     koneksi.query('INSERT INTO Pendapatan(Keterangan, Jumlah) VALUES(?, ?)',
     [ keterangan, jumlah ],
     (err, hasil) => {
@@ -84,10 +84,10 @@ app.post('/tambahdatapendapatan', (req, res) => {
     )
 });
 
-app.get('/hapus-pendapatan/:Jumlah', (req, res) => {
-    var jumlah = req.params.Jumlah;
-    koneksi.query('DELETE FROM Pendapatan WHERE Jumlah=?', 
-        [ jumlah ], (err, hasil) => {
+app.get('/hapus-pendapatan/:ID_Transaksi', (req, res) => {
+    var idtransaksi = req.params.ID_Transaksi;
+    koneksi.query('DELETE FROM Pendapatan WHERE ID_Transaksi=?', 
+        [idtransaksi], (err, hasil) => {
             if(err) throw err;
             res.redirect('/pendapatan');
         }
@@ -132,9 +132,3 @@ app.get('/hapus-penjualan/:Harga', (req, res) => {
 app.listen(port, () => {
     console.log(`App berjalan pada port ${port}`);
 });
-
-
-
-
-
-
